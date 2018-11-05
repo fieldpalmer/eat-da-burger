@@ -1,14 +1,20 @@
-* **Files**
+# eat-da-burger
 
-  * `22-CatsAppProblem`
 
-* **Instructions**
+### Overview
 
-  * Add a delete button into the `index.handlebars` file next to each cat.
+This project is a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
 
-  * Add on to the following:
+### Before You Begin
 
-  * The `cats.js` file to add a jQuery event handler for the delete button.
-  * The ORM to include a delete key and function
-  * The cat model to include a delete key and function that uses the ORM
-  * The `catsController.js` file to have a `/api/cats/:id` delete route, to call the delete key of the cat model, and to pass in arguments as necessary
+* Eat-Da-Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
+
+* Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
+
+* Each burger in the waiting area also has a `Devour it!` button. When the user clicks it, the burger will move to the right side of the page.
+
+* Your app will store every burger in a database, whether devoured or not.
+
+
+
+**Good Luck!**

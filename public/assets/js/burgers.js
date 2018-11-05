@@ -10,7 +10,7 @@ const registerPartial = (name, partialId) => {
   Handlebars.registerPartial(name, source);
 }
 
-displayPage = () => {
+const displayPage = () => {
   // Send the GET request.
   $.get("/api/burgers/").then(
     function(burgers) {
@@ -26,8 +26,8 @@ const renderTemplate = (data) => {
   $("#app").html(html);
 }
 
-function setupEventHandlers() {
-  $(document).on("click", ".change-state", function(event) {
+const setupEventHandlers = () => {
+  $(document).on("click", ".change-state", (event) => {
     var id = $(this).data("id");
     var newState = $(this).data("newstate");
 
@@ -48,7 +48,7 @@ function setupEventHandlers() {
     );
   });
 
-  $(document).on("submit", ".create-form", function(event) {
+  $(document).on("click", "#addBurgBtn", (event) => {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
@@ -58,27 +58,12 @@ function setupEventHandlers() {
     };
 
     // Send the POST request.
-    $.ajax("/api/burgers", {
+    $.ajax("/api/burgers/", {
       type: "POST",
       data: newBurger
     }).then(
       function() {
         console.log("created new burger");
-        // Rerender the templates with the updated list
-        displayPage();
-      }
-    );
-  });
-
-  $(document).on("click", ".delete-burger", function(event) {
-    var id = $(this).data("id");
-
-    // Send the DELETE request.
-    $.ajax("/api/burgers/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted burger", id);
         // Rerender the templates with the updated list
         displayPage();
       }
