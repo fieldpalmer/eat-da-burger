@@ -28,6 +28,8 @@ const renderTemplate = (data) => {
 
 const setupEventHandlers = () => {
   $(document).on("click", ".change-state", (event) => {
+    // event.preventDefault();
+
     var id = $(this).data("id");
     var newState = $(this).data("newstate");
 
@@ -55,7 +57,10 @@ const setupEventHandlers = () => {
     var newBurger = {
       name: $("#burgName").val().trim(),
       description: $("#burgDesc").val().trim(),
+      // devoured: false,
     };
+
+    console.log(newBurger);
 
     // Send the POST request.
     $.ajax("/api/burgers/", {
